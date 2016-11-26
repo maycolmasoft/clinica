@@ -7,7 +7,7 @@
 
       <head>
           <meta charset="utf-8"/>
-         <title>Usuarios - Maycol 2016</title>
+         <title>Usuarios - Clinica 2016</title>
       
       
       
@@ -16,38 +16,6 @@
 		  <script src="view/js/bootstrapValidator.min.js"></script>
 		  
 		  
-		 
-
-         
-         
-	<style>
-			body {
-			
-			    /* Ubicación de la imagen */
-		 
-		  background-image: url(view/images/fondo.jpg);
-		
-		  /* Nos aseguramos que la imagen de fondo este centrada vertical y
-		    horizontalmente en todo momento */
-		  background-position: center center;
-		
-		  /* La imagen de fondo no se repite */
-		  background-repeat: no-repeat;
-		
-		  /* La imagen de fondo está fija en el viewport, de modo que no se mueva cuando
-		     la altura del contenido supere la altura de la imagen. */
-		  background-attachment: fixed;
-		
-		  /* La imagen de fondo se reescala cuando se cambia el ancho de ventana
-		     del navegador */
-		  background-size: cover;
-		
-		  /* Fijamos un color de fondo para que se muestre mientras se está
-		    cargando la imagen de fondo o si hay problemas para cargarla  */
-		  background-color: #464646;
-			}
-			</style>
-	
 	
 	<script>
 	$(document).ready(function() {
@@ -162,16 +130,7 @@
                         
                     }
                 },
-                id_ciudad: {
-                    validators: {
-                    	notEmpty: {
-                            message: 'Este campo es requerido.'
-                    }
-                        
-                    }
-                },
-
-                imagen_usuarios: {
+                id_entidad: {
                     validators: {
                     	notEmpty: {
                             message: 'Este campo es requerido.'
@@ -200,34 +159,35 @@
       
       <!-- empieza el form --> 
        
-      <form  id="form-usuarios" action="<?php echo $helper->url("Usuarios","InsertaUsuarios"); ?>" method="post" enctype="multipart/form-data"  class="col-lg-5">
+      <form  id="form-usuarios" action="<?php echo $helper->url("Usuarios","InsertaUsuarios"); ?>" method="post" enctype="multipart/form-data"  class="col-lg-12">
             <br>
            
             
           <?php if ($resultEdit !="" ) { foreach($resultEdit as $resEdit) {?>
-           
-            <div class="well">
+            
+            <div class="col-lg-12">
+            <div class="col-lg-2">
+            </div>
+            <div class="col-lg-8">
             <h4 style="color:#ec971f;">Datos del Usuario</h4>
             <hr/>
             <div class="row">
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-3 col-md-4">
 		    <div class="form-group">
                                   <label for="cedula_usuarios" class="control-label">Cedula</label>
                                   <input type="text" class="form-control" id="cedula_usuarios" name="cedula_usuarios" value="<?php echo $resEdit->cedula_usuarios; ?>"  placeholder="Cedula">
                                   <span class="help-block"></span>
             </div>
 		    </div>
-			</div>
-            
-            <div class="row">
-		    <div class="col-xs-6 col-md-6">
+		
+		    <div class="col-xs-3 col-md-4">
 		    <div class="form-group">
                                   <label for="nombre_usuarios" class="control-label">Nombres Usuario</label>
                                   <input type="text" class="form-control" id="nombre_usuarios" name="nombre_usuarios" value="<?php echo $resEdit->nombre_usuarios; ?>"  placeholder="Nombre">
                                   <span class="help-block"></span>
             </div>
             </div>
-            <div class="col-xs-6 col-md-6">
+            <div class="col-xs-3 col-md-4">
             <div class="form-group">
                                   <label for="usuario_usuarios" class="control-label">Usuario</label>
                                   <input type="text" class="form-control" id="usuario_usuarios" name="usuario_usuarios" value="<?php echo $resEdit->usuario_usuarios; ?>"  placeholder="Usuario">
@@ -237,41 +197,21 @@
 			</div>
             
 			<div class="row">
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-3 col-md-4">
 		    <div class="form-group">
                                   <label for="clave_usuarios" class="control-label">Clave</label>
                                   <input type="password" class="form-control" id="clave_usuarios" name="clave_usuarios" value=""  placeholder="Clave">
                                   <span class="help-block"></span>
             </div>
             </div>
-            <div class="col-xs-6 col-md-6">
+            <div class="col-xs-3 col-md-4">
             <div class="form-group">
                                   <label for="cclave_usuarios" class="control-label">Confirme Clave</label>
                                   <input type="password" class="form-control" id="cclave_usuarios" name="cclave_usuarios" value=""  placeholder="Confirme Clave">
                                   <span class="help-block"></span>
             </div>
 		    </div>
-			</div>  
-			
-		    <div class="row">
-		    <div class="col-xs-6 col-md-6">
-		    <div class="form-group">
-                                  <label for="telefono_usuarios" class="control-label">Teléfono</label>
-                                  <input type="text" class="form-control" id="telefono_usuarios" name="telefono_usuarios" value="<?php echo $resEdit->telefono_usuarios; ?>"  placeholder="Teléfono">
-                                  <span class="help-block"></span>
-            </div>
-            </div>
-            <div class="col-xs-6 col-md-6">
-            <div class="form-group">
-                                  <label for="celular_usuarios" class="control-label">Celular</label>
-                                  <input type="text" class="form-control" id="celular_usuarios" name="celular_usuarios" value="<?php echo $resEdit->celular_usuarios; ?>"  placeholder="Celular">
-                                  <span class="help-block"></span>
-            </div>
-		    </div>
-			</div> 
-		    
-		    <div class="row">
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-3 col-md-4">
 		    <div class="form-group">
                                   <label for="correo_usuarios" class="control-label">Correo</label>
                                 <input type="text" class="form-control" id="correo_usuarios" name="correo_usuarios" value="<?php echo $resEdit->correo_usuarios; ?>"  placeholder="Correo">
@@ -279,7 +219,24 @@
                                   
             </div>
             </div>
-            <div class="col-xs-6 col-md-6">
+			</div>  
+			
+		    <div class="row">
+		    <div class="col-xs-3 col-md-4">
+		    <div class="form-group">
+                                  <label for="telefono_usuarios" class="control-label">Teléfono</label>
+                                  <input type="text" class="form-control" id="telefono_usuarios" name="telefono_usuarios" value="<?php echo $resEdit->telefono_usuarios; ?>"  placeholder="Teléfono">
+                                  <span class="help-block"></span>
+            </div>
+            </div>
+            <div class="col-xs-3 col-md-4">
+            <div class="form-group">
+                                  <label for="celular_usuarios" class="control-label">Celular</label>
+                                  <input type="text" class="form-control" id="celular_usuarios" name="celular_usuarios" value="<?php echo $resEdit->celular_usuarios; ?>"  placeholder="Celular">
+                                  <span class="help-block"></span>
+            </div>
+		    </div>
+		    <div class="col-xs-3 col-md-4">
             <div class="form-group">
                                   <label for="id_rol" class="control-label">Roles</label>
                                   <select name="id_rol" id="id_rol"  class="form-control" >
@@ -293,8 +250,9 @@
 		    </div>
 			</div> 
 		    
+		    
 		    <div class="row">
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-3 col-md-4">
 		    <div class="form-group">
                                   <label for="estados" class="control-label">Estado</label>
                                   <select name="estados" id="estados"  class="form-control" >
@@ -306,58 +264,58 @@
                                    <span class="help-block"></span>
             </div>
             </div>
-            <div class="col-xs-6 col-md-6">
+            <div class="col-xs-3 col-md-4">
             <div class="form-group">
-                                  <label for="id_ciudad" class="control-label">Ciudad</label>
-                                  <select name="id_ciudad" id="id_ciudad"  class="form-control" >
+                                  <label for="id_entidad" class="control-label">Entidad</label>
+                                  <select name="id_entidad" id="id_entidad"  class="form-control" >
                                         <option value="" selected="selected">--Seleccione--</option>
-									<?php foreach($resultCiu as $resCiu) {?>
-										<option value="<?php echo $resCiu->id_ciudad; ?>"  <?php if ($resCiu->id_ciudad == $resEdit->id_ciudad ) echo ' selected="selected" '  ; ?> ><?php echo $resCiu->nombre_ciudad; ?> </option>
+									<?php foreach($resultEntidad as $resCiu) {?>
+										<option value="<?php echo $resCiu->id_entidades; ?>"  <?php if ($resCiu->id_entidades == $resEdit->id_entidades ) echo ' selected="selected" '  ; ?> ><?php echo $resCiu->nombre_entidades; ?> </option>
 			       					<?php } ?>
 								  </select> 
                                   <span class="help-block"></span>
             </div>
 		    </div>
-			</div>
-		    
-		    <div class="row">
-		    <div class="col-xs-6 col-md-6">
+			<div class="col-xs-3 col-md-4">
 		    <div class="form-group">
                                   <label for="imagen_usuarios" class="control-label">Fotografía</label>
                                   <input type="file" class="form-control" id="imagen_usuarios" name="imagen_usuarios" value="">
                                   <span class="help-block"></span>
             </div>
 		    </div>
-			</div>   
-		    </div>
-		     <hr>
+			</div> 
+            </div>
+            <div class="col-lg-2">
+            </div>
+            </div>
+		    
             
             
 		     <?php } } else {?>
 		    
 		    
-            <div class="well">
+            <div class="col-lg-12">
+            <div class="col-lg-2">
+            </div>
+            <div class="col-lg-8">
             <h4 style="color:#ec971f;">Datos del Usuario</h4>
             <hr/>
             <div class="row">
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-3 col-md-4">
 		    <div class="form-group">
                                   <label for="cedula_usuarios" class="control-label">Cedula</label>
                                   <input type="text" class="form-control" id="cedula_usuarios" name="cedula_usuarios" value=""  placeholder="Cedula">
                                   <span class="help-block"></span>
             </div>
 		    </div>
-			</div>
-		       
-		    <div class="row">
-		    <div class="col-xs-6 col-md-6">
+			<div class="col-xs-3 col-md-4">
 		    <div class="form-group">
                                   <label for="nombre_usuarios" class="control-label">Nombres Usuario</label>
                                   <input type="text" class="form-control" id="nombre_usuarios" name="nombre_usuarios" value=""  placeholder="Nombre">
                                   <span class="help-block"></span>
             </div>
             </div>
-            <div class="col-xs-6 col-md-6">
+            <div class="col-xs-3 col-md-4">
             <div class="form-group">
                                   <label for="usuario_usuarios" class="control-label">Usuario</label>
                                   <input type="text" class="form-control" id="usuario_usuarios" name="usuario_usuarios" value=""  placeholder="Usuario">
@@ -367,41 +325,21 @@
 			</div>
 		       
 		    <div class="row">
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-3 col-md-4">
 		    <div class="form-group">
                                   <label for="clave_usuarios" class="control-label">Clave</label>
                                   <input type="password" class="form-control" id="clave_usuarios" name="clave_usuarios" value=""  placeholder="Clave">
                                   <span class="help-block"></span>
             </div>
             </div>
-            <div class="col-xs-6 col-md-6">
+            <div class="col-xs-3 col-md-4">
             <div class="form-group">
                                   <label for="cclave_usuarios" class="control-label">Confirme Clave</label>
                                   <input type="password" class="form-control" id="cclave_usuarios" name="cclave_usuarios" value=""  placeholder="Confirme Clave">
                                   <span class="help-block"></span>
             </div>
 		    </div>
-			</div> 
-			
-			<div class="row">
-		    <div class="col-xs-6 col-md-6">
-		    <div class="form-group">
-                                  <label for="telefono_usuarios" class="control-label">Teléfono</label>
-                                  <input type="text" class="form-control" id="telefono_usuarios" name="telefono_usuarios" value=""  placeholder="Teléfono">
-                                  <span class="help-block"></span>
-            </div>
-            </div>
-            <div class="col-xs-6 col-md-6">
-            <div class="form-group">
-                                  <label for="celular_usuarios" class="control-label">Celular</label>
-                                  <input type="text" class="form-control" id="celular_usuarios" name="celular_usuarios" value=""  placeholder="Celular">
-                                  <span class="help-block"></span>
-            </div>
-		    </div>
-			</div> 
-		    
-		    <div class="row">
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-3 col-md-4">
 		    <div class="form-group">
                                   <label for="correo_usuarios" class="control-label">Correo</label>
                                 <input type="text" class="form-control" id="correo_usuarios" name="correo_usuarios" value=""  placeholder="Correo">
@@ -409,7 +347,24 @@
                                   
             </div>
             </div>
-            <div class="col-xs-6 col-md-6">
+			</div> 
+			
+			<div class="row">
+		    <div class="col-xs-3 col-md-4">
+		    <div class="form-group">
+                                  <label for="telefono_usuarios" class="control-label">Teléfono</label>
+                                  <input type="text" class="form-control" id="telefono_usuarios" name="telefono_usuarios" value=""  placeholder="Teléfono">
+                                  <span class="help-block"></span>
+            </div>
+            </div>
+            <div class="col-xs-3 col-md-4">
+            <div class="form-group">
+                                  <label for="celular_usuarios" class="control-label">Celular</label>
+                                  <input type="text" class="form-control" id="celular_usuarios" name="celular_usuarios" value=""  placeholder="Celular">
+                                  <span class="help-block"></span>
+            </div>
+		    </div>
+		     <div class="col-xs-3 col-md-4">
             <div class="form-group">
                                   <label for="id_rol" class="control-label">Roles</label>
                                   <select name="id_rol" id="id_rol"  class="form-control" >
@@ -425,7 +380,7 @@
 		    
 		    
 		    <div class="row">
-		    <div class="col-xs-6 col-md-6">
+		    <div class="col-xs-3 col-md-4">
 		    <div class="form-group">
                                   <label for="estados" class="control-label">Estado</label>
                                   <select name="estados" id="estados"  class="form-control" >
@@ -437,23 +392,19 @@
                                    <span class="help-block"></span>
             </div>
             </div>
-            <div class="col-xs-6 col-md-6">
+            <div class="col-xs-3 col-md-4">
             <div class="form-group">
-                                  <label for="id_ciudad" class="control-label">Ciudad</label>
-                                  <select name="id_ciudad" id="id_ciudad"  class="form-control" >
+                                  <label for="id_entidad" class="control-label">Entidad</label>
+                                  <select name="id_entidad" id="id_entidad"  class="form-control" >
                                         <option value="" selected="selected">--Seleccione--</option>
-									<?php foreach($resultCiu as $resCiu) {?>
-										<option value="<?php echo $resCiu->id_ciudad; ?>"  ><?php echo $resCiu->nombre_ciudad; ?> </option>
+									<?php foreach($resultEntidad as $resCiu) {?>
+										<option value="<?php echo $resCiu->id_entidades; ?>"  ><?php echo $resCiu->nombre_entidades; ?> </option>
 			       					<?php } ?>
 								  </select> 
                                   <span class="help-block"></span>
             </div>
 		    </div>
-			</div>
-		    
-		      
-		    <div class="row">
-		    <div class="col-xs-6 col-md-6">
+			<div class="col-xs-3 col-md-4">
 		    <div class="form-group">
                                   <label for="imagen_usuarios" class="control-label">Fotografía</label>
                                   <input type="file" class="form-control" id="imagen_usuarios" name="imagen_usuarios" value="">
@@ -461,43 +412,50 @@
             </div>
 		    </div>
 			</div>  
-			</div> 
+			 
+            </div>
+            <div class="col-lg-2">
+            </div>
+            </div>
 			
-		     <hr>
+		     
 		    
 		   
                	
 		     <?php } ?>
 		     <div class="row" style="text-align: center;">
-			 <div class="col-lg-12 col-md-6 col-xs-3" style="text-align: center;">
-		     <div class="col-lg-4">
+			 <div class="col-lg-12" >
+		     <div class="col-lg-5">
 			 </div>
-			 <div class="col-lg-4">
-			 <button type="submit" id="Guardar" name="Guardar" class="btn btn-success btn-block" >Guardar</button>
+			 <div class="col-lg-2" style="margin-top: 20px">
+			 <button type="submit" id="Guardar" name="Guardar" class="btn btn-success btn-block" ><i class='glyphicon glyphicon-plus'></i> Guardar</button>
 			 </div>
-			 <div class="col-lg-4">
+			 <div class="col-lg-5">
 			 </div>
 			 </div>
 			 </div>     
-             <hr>
+            
 		     </form>
        
          
        
-       		<form action="<?php echo $helper->url("Usuarios","index"); ?>" method="post" enctype="multipart/form-data"  class="col-lg-7">
+       		<form action="<?php echo $helper->url("Usuarios","index"); ?>" method="post" enctype="multipart/form-data"  class="col-lg-12">
      		<br>
-     		<div class="well">  
-            <h4 style="color:#ec971f;">Usuarios Registrados</h4>
-            
+     		<div class="col-lg-12">
+     		<div class="col-lg-1">
+     		</div>
+     		<div class="col-lg-10">
+     		<div class="well">
+     		<h4 style="color:#ec971f;">Usuarios Registrados</h4>
             <div class="row">
-		    <div class="col-xs-2 col-md-4">
+            <div class="col-xs-3 col-md-3 col-lg-3">
 		    <div class="form-group">
                                   
                                   <input type="text" class="form-control" id="contenido" name="contenido" value="">
                                   
             </div>
 		    </div>
-		    <div class="col-xs-2 col-md-4">
+		    <div class="col-xs-3 col-md-3 col-lg-3">
 		    <div class="form-group">
                                   
                                   <select name="criterio" id="criterio"  class="form-control">
@@ -507,17 +465,16 @@
                                   </select>
             </div>
 		    </div>
-		    <div class="col-xs-2 col-md-4">
+		    <div class="col-xs-4 col-md-4 col-lg-4">
 		    <div class="form-group">
                                   
-                                  <button type="submit" id="Buscar" name="Buscar" value="Buscar" class="btn btn-info"/>
+                                  <button type="submit" id="Buscar" name="Buscar" class="btn btn-info"><i class='glyphicon glyphicon-search'></i></button>
             </div>
 		    </div>
-			</div>  
-             
-       
-       <div class="datagrid"> 
-       <section style="height:485px; overflow-y:scroll;">
+			</div> 
+			
+			<div class="datagrid"> 
+       <section style="height:250px; overflow-y:scroll;">
        <table class="table table-hover ">
        
        <thead>
@@ -531,7 +488,7 @@
 		    		<th style="font-size:100%;">Estado</th>
 		    		<th></th>
 		    		<th></th>
-		    		<th></th>
+		    	
 	  		</tr>
 	   </thead>
        <tfoot>
@@ -586,7 +543,7 @@
                
 	   <tbody>
 	   		<tr>
-	        		   <td> <input type="image" name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_usuarios; ?>&id_nombre=id_usuarios&tabla=usuarios&campo=imagen_usuarios"  alt="<?php echo $res->id_usuarios; ?>" width="80" height="60" >      </td>
+	        		   <td> <input type="image" name="image" src="view/DevuelveImagen.php?id_valor=<?php echo $res->id_usuarios; ?>&id_nombre=id_usuarios&tabla=usuarios&campo=imagen_usuarios"  alt="<?php echo $res->id_usuarios; ?>" width="50" height="50"></td>
 		               <td style="font-size:80%;"> <?php echo $res->id_usuarios; ?></td>
 		               <td style="font-size:80%;"> <?php echo $res->nombre_usuarios; ?>     </td> 
 		               <td style="font-size:80%;"> <?php echo $res->usuario_usuarios; ?>  </td>
@@ -595,21 +552,16 @@
 		               <td style="font-size:80%;"> <?php echo $res->nombre_estado; ?>  </td>
 		           	   <td>
 			           			<div class="right">
-			                    	<a href="<?php echo $helper->url("Usuarios","index"); ?>&id_usuarios=<?php echo $res->id_usuarios; ?>" class="btn btn-warning" onClick="notificacion()" style="font-size:65%;">Editar</a>
+			                    	<a href="<?php echo $helper->url("Usuarios","index"); ?>&id_usuarios=<?php echo $res->id_usuarios; ?>" class="btn btn-warning" style="font-size:85%;"><i class='glyphicon glyphicon-edit'></i></a>
 			               		</div>
 			            
 			           </td>
 			           <td>   
 			                	<div class="right">
-			                    	<a href="<?php echo $helper->url("Usuarios","borrarId"); ?>&id_usuarios=<?php echo $res->id_usuarios; ?>" class="btn btn-danger" onClick="Borrar()" style="font-size:65%;">Borrar</a>
+			                    	<a href="<?php echo $helper->url("Usuarios","borrarId"); ?>&id_usuarios=<?php echo $res->id_usuarios; ?>" class="btn btn-danger" style="font-size:85%;"><i class="glyphicon glyphicon-trash"></i></a>
 			                	</div>
 			           </td>
-		               <td>   
-			                	<div class="right">
-			                		<a href="/FrameworkMVC/view/ireports/ContUsuariosSubReport.php?id_usuarios=<?php echo $res->id_usuarios; ?>"onclick="window.open(this.href, this.target, ' width=1000, height=800, menubar=no');return false"; class="btn btn-success" style="font-size:65%;">Reporte</a>
-			                 	</div>
-			               		
-		               </td>
+		              
 		     </tr>
 	   
 	   </tbody>	
@@ -633,24 +585,21 @@
       </section>
       
        </div>
-        </div>
+		</div>	 
+     		</div>
+     		<div class="col-lg-1">
+     		</div>
+     		</div>
+     	
+       
           </form>
       
       </div>
       </div>
    
-   
-   
-			 <br>
-			 <div class="col-lg-12 col-md-6"> 
-			 <?php include("view/modulos/Contactos.php"); ?>
-			 </div>
-			 <br>
-			 <br>
-			 <br>
-			 <br>
-			 
-			 		 
+   <br>
+   <br>
+   <br>	 		 
 			 <footer class="col-lg-12">
 			 <?php include("view/modulos/footer.php"); ?>
 			 </footer> 

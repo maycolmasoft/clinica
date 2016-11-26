@@ -20,7 +20,7 @@
 			
 			    /* Ubicación de la imagen */
 		 
-		  background-image: url(view/images/fondo.jpg);
+		  background-image: url(view/images/fondo_login.jpg);
 		
 		  /* Nos aseguramos que la imagen de fondo este centrada vertical y
 		    horizontalmente en todo momento */
@@ -53,7 +53,7 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
        
    
- <form id="form-login"  action="<?php echo $helper->url("usuarios","Loguear"); ?>" method="post" class="col-lg-12" style="padding-top:100px;">
+ <form id="form-login"  action="<?php echo $helper->url("usuarios","Loguear"); ?>" method="post" class="col-lg-8" style="padding-top:120px;">
                      
     <div id="login-overlay" class="modal-dialog" >
       <div class="modal-content">
@@ -96,9 +96,7 @@
  </div>
  </form>
  <br>
- <div class="col-lg-12 col-md-6"> 
- <?php include("view/modulos/Contactos.php"); ?>
- </div>       
+       
         <footer class="col-lg-12">
            <?php include("view/modulos/footer.php"); ?>
         </footer> 

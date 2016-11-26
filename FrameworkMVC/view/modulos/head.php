@@ -9,18 +9,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
    		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>   
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-		
+		<link rel="stylesheet" href="view/css/bootstrap.css">
 		<link rel="stylesheet" href="view/css/estilos.css">
 		<link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css">
         <script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
         <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+			
         
         <style>
 
@@ -59,10 +60,10 @@ $(document).ready(function(){
 <div class="container"  style=" -webkit-box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.49);-moz-box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.49); box-shadow: 0px 2px 2px 4px rgba(0,0,0,0.49);">
   
   
-  <div class="row" style=" background-color:  #F2F2F2  ;">
+  <div class="row headhome">
   
   <div style=" margin-top: 10px; "   class="col-xs-6 col-md-8"  >
-  <img src="view/images/logo.png" class="img-responsive" alt="Responsive image" width="350" height="350">
+  <img src="view/images/logo.png" class="img-responsive" alt="Responsive image" width="300" height="300">
   </div>
   
  	 
@@ -86,7 +87,7 @@ $(document).ready(function(){
 			
 			<div class="dropdown">
 			
-				  <button id="noti_btn" class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-user" ><FONT  SIZE=2><?php echo " ".$_SESSION['nombre_usuarios'];?></FONT></span>
+				  <button id="noti_btn" class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-user" ><FONT  SIZE=2><?php echo " ".$_SESSION['usuario_usuarios'];?></FONT></span>
 				  
 				  <span class="caret"></span>
 				  </button>

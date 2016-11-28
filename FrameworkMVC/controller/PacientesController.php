@@ -200,13 +200,8 @@ class PacientesController extends ControladorBase{
 					$nombre = $_FILES['fotografia_pacientes']['name'];
 					$tipo = $_FILES['fotografia_pacientes']['type'];
 					$tamano = $_FILES['fotografia_pacientes']['size'];
-						
-					// temporal al directorio definitivo
-						
 					move_uploaded_file($_FILES['fotografia_pacientes']['tmp_name'],$directorio.$nombre);
-						
 					$data = file_get_contents($directorio.$nombre);
-						
 					$fotografia_pacientes = pg_escape_bytea($data);
 						
 						
@@ -218,62 +213,30 @@ class PacientesController extends ControladorBase{
 				
 				}else {
 					
-					$resultSexo = $sexo->getBy("id_sexo='$_id_sexo'");
-					$_nombre_sexo=$resultSexo[0]->nombre_sexo;
 					
 					
-					if($_nombre_sexo=="MASCULINO"){
-					
-						$fotografia_pacientes= '<img src="view/images/hombre.jpg" class="img-responsive" alt="Responsive image" width="80" height="80">';
-						$colval = "id_entidades='$_id_entidades' , cedula_pacientes='$_cedula_pacientes' , nombre_pacientes='$_nombre_pacientes', apellido_pacientes='$_apellido_pacientes', fecha_nacimiento_pacientes='$_fecha_nacimiento_pacientes' , edad_pacientes='$_edad_pacientes', id_sexo='$_id_sexo' , id_estado_civil='$_id_estado_civil', telefono_pacientes='$_telefono_pacientes', celular_pacientes='$_celular_pacientes', id_paises='$_id_paises', id_provincias='$_id_provincias', id_cantones='$_id_cantones', direccion_pacientes='$_direccion_pacientes', id_ocupaciones='$_id_ocupaciones', id_tipo_sangre='$_id_tipo_sangre', fotografia_pacientes='$fotografia_pacientes'";
+						$colval = "id_entidades='$_id_entidades' , cedula_pacientes='$_cedula_pacientes' , nombre_pacientes='$_nombre_pacientes', apellido_pacientes='$_apellido_pacientes', fecha_nacimiento_pacientes='$_fecha_nacimiento_pacientes' , edad_pacientes='$_edad_pacientes', id_sexo='$_id_sexo' , id_estado_civil='$_id_estado_civil', telefono_pacientes='$_telefono_pacientes', celular_pacientes='$_celular_pacientes', id_paises='$_id_paises', id_provincias='$_id_provincias', id_cantones='$_id_cantones', direccion_pacientes='$_direccion_pacientes', id_ocupaciones='$_id_ocupaciones', id_tipo_sangre='$_id_tipo_sangre'";
 						$tabla = "pacientes";
 						$where = "id_pacientes = '$_id_pacientes' AND cedula_pacientes = '$_cedula_pacientes' AND id_entidades = '$_id_entidades'";
 						$resultado=$pacientes->UpdateBy($colval, $tabla, $where);
-					
-							
-					
-					}else{
-					
-						$fotografia_pacientes= '<img src="view/images/mujer.jpg" class="img-responsive" alt="Responsive image" width="80" height="80">';
-						$colval = "id_entidades='$_id_entidades' , cedula_pacientes='$_cedula_pacientes' , nombre_pacientes='$_nombre_pacientes', apellido_pacientes='$_apellido_pacientes', fecha_nacimiento_pacientes='$_fecha_nacimiento_pacientes' , edad_pacientes='$_edad_pacientes', id_sexo='$_id_sexo' , id_estado_civil='$_id_estado_civil', telefono_pacientes='$_telefono_pacientes', celular_pacientes='$_celular_pacientes', id_paises='$_id_paises', id_provincias='$_id_provincias', id_cantones='$_id_cantones', direccion_pacientes='$_direccion_pacientes', id_ocupaciones='$_id_ocupaciones', id_tipo_sangre='$_id_tipo_sangre', fotografia_pacientes='$fotografia_pacientes'";
-						$tabla = "pacientes";
-						$where = "id_pacientes = '$_id_pacientes' AND cedula_pacientes = '$_cedula_pacientes' AND id_entidades = '$_id_entidades'";
-						$resultado=$pacientes->UpdateBy($colval, $tabla, $where);
-					
-							
-					}
 					
 				}
-				
-				
 			}
-			
-			
 			else {
 		
-		
-			
-			if ($_FILES['fotografia_pacientes']['tmp_name']!="")
+		    if ($_FILES['fotografia_pacientes']['tmp_name']!="")
 			{
 			
 				
 				$directorio = $_SERVER['DOCUMENT_ROOT'].'/clinica/fotografias_pacientes/';
-			
-				$nombre = $_FILES['fotografia_pacientes']['name'];
+			    $nombre = $_FILES['fotografia_pacientes']['name'];
 				$tipo = $_FILES['fotografia_pacientes']['type'];
 				$tamano = $_FILES['fotografia_pacientes']['size'];
+			    move_uploaded_file($_FILES['fotografia_pacientes']['tmp_name'],$directorio.$nombre);
+			    $data = file_get_contents($directorio.$nombre);
+			    $fotografia_pacientes = pg_escape_bytea($data);
 			
-				// temporal al directorio definitivo
-			
-				move_uploaded_file($_FILES['fotografia_pacientes']['tmp_name'],$directorio.$nombre);
-			
-				$data = file_get_contents($directorio.$nombre);
-			
-				$fotografia_pacientes = pg_escape_bytea($data);
-			
-			
-			
-				$funcion = "ins_pacientes";
+			    $funcion = "ins_pacientes";
 				$parametros = " '$_id_entidades' ,'$_cedula_pacientes' , '$_nombre_pacientes', '$_apellido_pacientes', '$_fecha_nacimiento_pacientes' , '$_edad_pacientes', '$_id_sexo' , '$_id_estado_civil', '$_telefono_pacientes', '$_celular_pacientes', '$_id_paises', '$_id_provincias', '$_id_cantones', '$_direccion_pacientes', '$_id_ocupaciones', '$_id_tipo_sangre', '$fotografia_pacientes', '$_numero_consecutivos'";
 				$pacientes->setFuncion($funcion);
 			    $pacientes->setParametros($parametros);
@@ -293,6 +256,9 @@ class PacientesController extends ControladorBase{
 				if($_nombre_sexo=="MASCULINO"){
 				
 					$fotografia_pacientes= '<img src="view/images/hombre.jpg" class="img-responsive" alt="Responsive image" width="80" height="80">';
+					move_uploaded_file($_FILES[$fotografia_pacientes]['tmp_name'],$directorio.$nombre);
+					$data = file_get_contents($directorio.$nombre);
+					$fotografia_pacientes = pg_escape_bytea($data);
 					$funcion = "ins_pacientes";
 					$parametros = " '$_id_entidades' ,'$_cedula_pacientes' , '$_nombre_pacientes', '$_apellido_pacientes', '$_fecha_nacimiento_pacientes' , '$_edad_pacientes', '$_id_sexo' , '$_id_estado_civil', '$_telefono_pacientes', '$_celular_pacientes', '$_id_paises', '$_id_provincias', '$_id_cantones', '$_direccion_pacientes', '$_id_ocupaciones', '$_id_tipo_sangre', '$fotografia_pacientes', '$_numero_consecutivos'";
 					$pacientes->setFuncion($funcion);
@@ -305,6 +271,9 @@ class PacientesController extends ControladorBase{
 				}else{
 					
 					$fotografia_pacientes= '<img src="view/images/mujer.jpg" class="img-responsive" alt="Responsive image" width="80" height="80">';
+					move_uploaded_file($_FILES[$fotografia_pacientes]['tmp_name'],$directorio.$nombre);
+					$data = file_get_contents($directorio.$nombre);
+					$fotografia_pacientes = pg_escape_bytea($data);
 					$funcion = "ins_pacientes";
 					$parametros = " '$_id_entidades' ,'$_cedula_pacientes' , '$_nombre_pacientes', '$_apellido_pacientes', '$_fecha_nacimiento_pacientes' , '$_edad_pacientes', '$_id_sexo' , '$_id_estado_civil', '$_telefono_pacientes', '$_celular_pacientes', '$_id_paises', '$_id_provincias', '$_id_cantones', '$_direccion_pacientes', '$_id_ocupaciones', '$_id_tipo_sangre', '$fotografia_pacientes', '$_numero_consecutivos'";
 					$pacientes->setFuncion($funcion);

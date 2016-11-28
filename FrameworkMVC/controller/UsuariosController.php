@@ -251,7 +251,7 @@ public function index(){
 		    
 		    	//para la foto
 		    	 
-		    	$directorio = $_SERVER['DOCUMENT_ROOT'].'/clinica/fotografias_usuarios';
+		    	$directorio = $_SERVER['DOCUMENT_ROOT'].'/clinica/fotografias_usuarios/';
 		    	 
 		    	$nombre = $_FILES['imagen_usuarios']['name'];
 		    	$tipo = $_FILES['imagen_usuarios']['type'];
